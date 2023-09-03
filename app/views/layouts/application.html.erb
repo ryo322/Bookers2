@@ -6,16 +6,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/60b6d7d28b.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "log out", destroy_user_session_path, method: :delete %>
-      </li>
+      <% if user_signed_in? %>
+       <nav>
+        <a href="/">
+          <span>Bookers</span>
+        </a>
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="nav-list-item">
+             <a href="/users">Users</a>
+          </li>
+          <li class="nav-list-item">
+             <a href="/books">Books</a>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "log out", destroy_user_session_path, method: :delete %>
+          </li>
+         </ul>
+        </nav>
      <% else %>
       <li>
         <%= link_to "sign up", new_user_registration_path %>
@@ -27,4 +44,7 @@
     </header>
    <%= yield %>
   </body>
+  <footer>
+    CopyRight Infratop.inc
+  </footer>
 </html>
