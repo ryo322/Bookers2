@@ -14,37 +14,77 @@
   <body>
     <header>
       <% if user_signed_in? %>
-       <nav>
-        <a href="/">
-          <span>Bookers</span>
+      <nav class="navbar bg-dark">
+       <div class="container">
+        <a class="navbar-brand text-white" href="/">
+         <span>Bookers</span>
         </a>
-        <ul class="nav-list">
-          <li class="nav-list-item">
-            <a href="/">Home</a>
-          </li>
-          <li class="nav-list-item">
-             <a href="/users">Users</a>
-          </li>
-          <li class="nav-list-item">
-             <a href="/books">Books</a>
-          </li>
-          <li class="nav-list-item">
-            <%= link_to "log out", destroy_user_session_path, method: :delete %>
-          </li>
-         </ul>
-        </nav>
+       <ul class="nav ml-auto">
+        <li>
+          <a class="nav-link text-white" href="/">
+            <i class="fa-solid fa-house" style="color: #ffffff;"></i>Home
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" href="/users">
+            <i class="fa-solid fa-users" style="color: #ffffff;"></i>Users
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" href="/books">
+            <i class="fa-solid fa-book-open" style="color: #ffffff;"></i>Books
+          </a>
+        </li>
+        <li>
+         <a class="nav-link text-white" href=>
+           <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i>Log out
+         </a>
+        </li>
+       </ul>
+       </div>
+      </nav>
      <% else %>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "log in", new_user_session_path %>
-      </li>
+     <nav class="navbar bg-dark">
+      <div class="container">
+        <a class="navbar-brand text-white" href="/">
+         <span>Bookers</span>
+        </a>
+        <ul class="nav ml-auto">
+          <li>
+            <a class="nav-link text-white" href="/">
+              <i class="fa-solid fa-house" style="color: #ffffff;"></i> Home
+            </a>
+          </li>
+          <li>
+            <a class="nav-link text-white" href="homes/about">
+              <i class="fa-solid fa-link" style="color: #ffffff;"></i> About
+            </a>
+          </li>
+          <li>
+           <a class="nav-link text-white" href="sign_up">
+             <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Sign up
+           </a>
+          </li>
+          <li>
+           <a class="nav-link text-white" href="sign_in">
+             <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Log in
+           </a>
+          </li>
+        </ul>
+        </div>
+
+     </nav>
      <% end %>
     </header>
    <%= yield %>
   </body>
   <footer>
-    CopyRight Infratop.inc
+    <div class="container mt-5">
+     <div class="row">
+       <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+       </div>
+     </div>
+    </div>
   </footer>
 </html>
