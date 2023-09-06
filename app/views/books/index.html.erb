@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'user' %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+           <tr>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+           </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
