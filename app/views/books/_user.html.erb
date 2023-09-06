@@ -17,7 +17,7 @@
    </tbody>
   </table>
   <div class="row">
-   <a class="btn btn-outline-secondary btn-block" href="/users/edit">
+   <a class="btn btn-outline-secondary btn-block" href="/users/<%= current_user.id %>/edit">
     <i class="fa-solid fa-user-gear" style="color: #5c5e60;"></i>
    </a>
   </div>
@@ -33,4 +33,3 @@
  </div>
   <%= f.submit "Create Book", class: "btn btn-success btn-sm" %>
  <% end %>
- 
