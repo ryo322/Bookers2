@@ -12,7 +12,7 @@
          <thead>
           <tr>
            <th>
-             <%= image_tag @book.user.get_profile_image %><br>
+             <%= image_tag @book.user.get_profile_image, width: 80, height: 80 %><br>
              <%= link_to @book.user.name, user_path(@book.user) %>
            </th>
            <th><%= link_to @book.title, book_path(@book) %></th>
@@ -43,7 +43,7 @@
         <% @book.comments.each do |comment| %>
          <tr>
            <td>
-             <%= image_tag comment.user.get_profile_image %>
+             <%= image_tag comment.user.get_profile_image, width: 80, height: 80 %>
              <%= comment.user.name %>
              <%= comment.comment %>
              <% if comment.user == current_user %>
@@ -55,7 +55,7 @@
       </tbody>
      </table>
        <%= form_with model: [@book, @comment] do |f| %>
-         <%= f.text_area :comment %>
+         <%= f.text_area :comment,   rows: 5, cols: 80 %>
          <%= f.submit "送信する" %>
        <% end %>
     </div>
