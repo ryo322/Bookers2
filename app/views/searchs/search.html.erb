@@ -1,0 +1,33 @@
+<table class="table table-hover table-inverse">
+  <% if @range == "User" %>
+   <h2>User search for "<%= @search_word %>"</h2>
+    <tbody>
+      <% @results_user.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image, width: 80, height: 80 %></td>
+          <td><%= user.name %></td>
+          <td>フォロー<%= user.followers.count %></td>
+          <td>フォロワー<%= user.followeds.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+   <h2>Books search for "<%= @search_word %>"</h2>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results_book.each do |book| %>
+        <tr>
+          <td><a href="<%= user_path(book.user) %>"><%= image_tag book.user.get_profile_image, width: 80, height: 80 %></a></td>
+          <td><%= link_to book.title, book_path(book) %></td>
+          <td><%= book.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
