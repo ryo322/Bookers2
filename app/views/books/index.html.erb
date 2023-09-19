@@ -28,9 +28,11 @@
             <td><a href="<%= user_path(book.user) %>"><%= image_tag book.user.get_profile_image, width: 80, height: 80 %></a></td>
             <td><%= link_to book.title, book_path(book) %></td>
             <td><%= book.body %></td>
-            <td id="favorite_buttons_<%= @book.id %>">
+            <%= form_with model: [book], local: false do |f| %>
+            <td id="favorite_buttons_<%= book.id %>">
              <%= render "favorites/favorites", book: book %>
             </td>
+            <% end %>
             <td>コメント件数：<%= @book.comments.count %></td>
           </tr>
          <% end %>
